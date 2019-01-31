@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>login</title>
+</head>
+<body>
+  <form method="post" onsubmit="login();return false;">
+    <input type="text" id="username">
+    <input type="password" id="password">
+    <input type="submit" value="login" id="login-btn">
+  </form>
+
+  <div id="msg"></div>
+
+  <script>
+    function login () {
+      var username = document.querySelector('#username').value
+      var password = document.querySelector('#password').value
+      require('electron').remote.getCurrentWebContents().emit('login', {
+        username: username,
+        password: password
+      })
+    }
+    require('electron').remote.getCurrentWebContents().on('login-error', (msg) => {
+      document.querySelector('#msg').innerHTML = msg
+    })
+  </script>
+</body>
+</html>

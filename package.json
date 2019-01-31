@@ -1,0 +1,63 @@
+{
+  "name": "spectron-window-demo",
+  "version": "0.0.1",
+  "description": "demo of spectron-window, Easily test your multiwindow Electron apps",
+  "author": "luzhujun",
+  "license": "MIT",
+  "main": "demo/main/index.js",
+  "scripts": {
+    "start": "electron .",
+    "pretest": "electron-builder && babel test --out-dir build",
+    "test": "mocha build"
+  },
+  "keywords": [
+    "spectron",
+    "electron",
+    "window"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/smildlzj/spectron-window-demo"
+  },
+  "keywords": [
+    "spectron",
+    "window",
+    "multiwindow",
+    "electron"
+  ],
+  "build": {
+    "directories": {
+      "buildResources": "resource",
+      "output": "dist"
+    },
+    "asar": false,
+    "compression": "maximum",
+    "files": [
+      "demo"
+    ],
+    "forceCodeSigning": false,
+    "mac": {
+      "compression": "maximum",
+      "target": [
+        "dir"
+      ]
+    },
+    "win": {
+      "target": [
+        "dir"
+      ]
+    }
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "chai": "^4.2.0",
+    "electron": "1.8.4",
+    "electron-builder": "20.19.2",
+    "mocha": "^5.2.0",
+    "spectron": "^5.0.0",
+    "spectron-window": "^0.0.1"
+  }
+}
